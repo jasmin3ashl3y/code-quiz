@@ -1,3 +1,29 @@
-.row {
+
+#header {
     margin-top: 30px;
+    justify-content: space-between;
+    display: flex;
+    font-family: helvetica;
+}
+
+.quiz-start {
+    justify-content: center;
+    text-align: center;
+    font-family: helvetica;
+}
+
+.question {
+    font-family: helvetica;
+}
+
+.btn {
+    background-color: rgb(32, 7, 90);
+    border-radius: 8px;
+    width: 250px;
+    justify-content: right;
+}
+
+#start {
+    color: white;
+    font-family: helvetica;
 }

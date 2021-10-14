@@ -26,10 +26,25 @@
             <div class="quiz-continue" style="display: none">
             <h2 class="question" id="questions"></h2>
             <div id="answers">
-                <div id="one" class="btn" onclick=""
+                <div id="one" class="btn" onclick="checkAnswer('one')"></div>
+                <div id="two" class="btn" onclick="checkAnswer('two')"></div>
+                <div id="three" class="btn" onclick="checkAnswer('three')"></div>
+                <div id="four" class="btn" onclick="checkAnswer('four')"></div>
             </div>
             </div>
         </div>
+
+        <!--If time runs out-->
+        <div id="times-up" style="display:none">
+        <h3>Time's up!</h3>
+        <div id="game-over" class="btn">Game Over! 0 pts</div>
+
+        <!--Save your score-->
+        <div id="save-score" style="display:none">
+        <h2>All Done!</h2>
+        <p id="display-score">Your Final Score</p>
+        <div class="input-initials" type="text" name="user-name" placeholder="enter your initials"></div>
+        <div class="input-score" type="button" value="Submit" onclick="userName()"></div>
     </div>
 
 <script src="assets/script.js"></script>  

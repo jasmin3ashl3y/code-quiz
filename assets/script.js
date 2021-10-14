@@ -1,53 +1,53 @@
-const theQuestions=[
+var questions = [
     {
         question: "Inside which HTML element do we put the Javascript?",
         answers: {
-           a: "<js>",
-           b: "<javascript>",
-           c: "<script>",
-           d: "<link type=script>"
+           choiceOne: "<js>",
+           choiceTwo: "<javascript>",
+           choiceThree: "<script>",
+           choiceFour: "<link type=script>",
+           correct:"Three",
         },
-        correctAnswer:"c",
     },
     {
         question: "Where is the correct place to insert the Javascript tag?",
         answers: {
-           a: "in the <head> tag",
-           b: "in the !DOCTYPE declaration",
-           c: "at the end of the <body> tag",
-           d: "in the <footer> tag",
+           choiceOne: "in the <head> tag",
+           choiceTwo: "in the !DOCTYPE declaration",
+           choiceThree: "at the end of the <body> tag",
+           choiceFour: "in the <footer> tag",
+           correct:"Three",
         },
-        correctAnswer:"c",
     },
     {
         question: "What year was JavaScript created?",
         answers: {
-           a: "2003",
-           b: "1989",
-           c: "1992",
-           d: "1995",
+           choiceOne: "2003",
+           choiceTwo: "1989",
+           choiceThree: "1992",
+           choiceFour: "1995",
+           correct:"Four",
         },
-        correctAnswer:"d",
     },
     {
         question: "What is Boolean data type?",
         answers: {
-           a: "one of two possible values, usually true or false",
-           b: "named after George Boole",
-           c: "an algebraic system of logic",
-           d: "all of the above",
+           choiceOne: "one of two possible values, usually true or false",
+           choiceTwo: "named after George Boole",
+           choiceThree: "an algebraic system of logic",
+           choiceFour: "all of the above",
+           correct:"Four",
         },
-        correctAnswer:"d",
     },
     {
         question: "Javascript is hard to learn",
         answers: {
-           a: "yup",
-           b: "totally",
-           c: "seems like it",
-           d: "yes",
+           choiceOne: "yup",
+           choiceTwo: "totally",
+           choiceThree: "seems like it",
+           choiceFour: "yes",
+           correct:"Two",
         },
-        correctAnswer:"b",
     }
 ];
 
@@ -56,36 +56,45 @@ var i = 0;
 var timeRemaining = 75;
 var newTime = timeRemaining;
 
-var startTest = function () {
-    // creating container div for start test button
-    var mainEl = document.querySelector("#quiz-center");
-  
-    // create row
-    var rowEl = document.createElement("div");
-    rowEl.setAttribute("class", "row");
-    mainEl.appendChild(rowEl);
-  
-    // center column
-    var firstColEl = document.createElement("div");
-    firstColEl.setAttribute("class", "col-12 text-center");
-    rowEl.appendChild(firstColEl);
-  
-    // create button to start test
-    var startButtonEl = document.createElement("button");
-    startButtonEl.setAttribute("type", "button");
-    startButtonEl.setAttribute("class", "btn btn-primary");
-    startButtonEl.setAttribute("id", "start");
-    startButtonEl.textContent = "Start test";
-    firstColEl.appendChild(startButtonEl);
-  
-    // when startButtonEl is clicked, begin the test
-    startButtonEl.addEventListener("click", beginTest, removeStart);
-  };
+var choiceOne = document.getElementById('one');
+var choiceTwo = document.getElementById('two');
+var choiceThree = document.getElementById('three');
+var choiceFour = document.getElementById('four');
+
+var timesUp = document.getElementById('times-up');
+var gameOver = document.getElementById('game-over');
+var quizStart = document.getElementById('quiz-start');
+var quizContinue = document.getElementById('quiz-continue');
+var question = document.getElementById('questions');
+var gameOver = document.getElementById('game-over');
+var checkAnswer = document.getElementById('check-answer');
+var highScore = document.getElementById('high-score');
+
+
+var timerE1 = document.getElementById('timer');
+var header = document.getElementById('header');
+
+var timeRemaining = 1;
+
+var displayHighScore = function(event){
+
+}
+
+var checkAnswer(answer) {
+    var answer = questions[listQuestions];
+    
+    question.innerHTML = answer.question;
+    choiceOne.innerHTML = answer.choiceOne;
+    choiceTwo.innerHTML = answer.choiceTwo;
+    choiceThree.innerHTML = answer.choiceThree;
+    choiceFour.innerHTML = answer.choiceFour;
+
+};
   
     // change test to quiz
     var beginTest = function () {
       countDown(timeRemaining);
-    var mainEl = document.querySelector("#quiz-center");
+    var mainEl = document.querySelector("#quiz");
         mainEl.innerHTML = "";
   
     // setting up first column as click the high score
@@ -93,29 +102,6 @@ var startTest = function () {
         firstColEl.setAttribute("class", "col-3");
         firstColEl.setAttribute("id", "results");
   
-    // creating row
-    var rowEl = document.createElement("div");
-        rowEl.setAttribute("class", "row");
-        rowEl.setAttribute("id", "over");
-        mainEl.appendChild(rowEl);
-        rowEl.appendChild(firstColEl);
-  
-    var highScoreButtonEl = document.createElement("button");
-        highScoreButtonEl.setAttribute("type", "button");
-        highScoreButtonEl.setAttribute("class", "btn btn-link");
-        highScoreButtonEl.setAttribute("id", "viewScores");
-        highScoreButtonEl.textContent = "View high scores";
-        firstColEl.appendChild(highScoreButtonEl);
-  
-    // set up middle column for test
-    var secondColEl = document.createElement("div");
-        secondColEl.setAttribute("class", "col-6 text-center");
-        secondColEl.setAttribute("id", "quiz");
-  
-    // loop through questions
-    //for(var i = 0; i < theQuestions.length; i++) {
-  
-    console.log(theQuestions[i]);
     // ask question
     var questionH1El = document.createElement("h1");
         questionH1El.textContent = theQuestions[i].question;
@@ -123,61 +109,12 @@ var startTest = function () {
     // create list of answers
     var listOfAnswersEl = document.createElement("ul");
         secondColEl.appendChild(listOfAnswersEl);
-
-    //  each answer is in an label
-    var answerLabelOneEl = document.createElement("label");
-        answerLabelOneEl.textContent = theQuestions[i].answers.c;
-        listOfAnswersEl.appendChild(answerLabelOneEl);
-    // creates an input for them to click
-    var answerOneEl = document.createElement("input");
-        answerOneEl.setAttribute("type", "button");
-        answerOneEl.setAttribute("name", "answerC");
-        answerOneEl.setAttribute("onclick", "answerQuestion()");
-        answerLabelOneEl.appendChild(answerOneEl);
-
-    // creates an input for them to click
-    var answerTwoEl = document.createElement("input");
-        answerTwoEl.setAttribute("type", "button");
-        answerTwoEl.setAttribute("id", "answerC");
-        answerTwoEl.setAttribute("onclick", "answerQuestion()");
-        answerTwoEl.setAttribute("value", theQuestions[i].answers.c);
-        listOfAnswersEl.appendChild(answerTwoEl);
-  
-    // each answer is in an label
-    var answerLabelThreeEl = document.createElement("label");
-        answerLabelThreeEl.textContent = theQuestions[i].answers.d;
-        listOfAnswersEl.appendChild(answerLabelThreeEl);
-    // create an input to click
-    var answerThreeEl = document.createElement("input");
-        answerThreeEl.setAttribute("type", "button");
-        answerThreeEl.setAttribute("id", "answerD");
-        answerThreeEl.setAttribute("onclick", "answerQuestion()");
-        answerLabelThreeEl.appendChild(answerThreeEl);
-  
-
-    // each answer is in an label
-    var answerLabelFourEl = document.createElement("label");
-        answerLabelFourEl.textContent = theQuestions[i].answers.d;
-        listOfAnswersEl.appendChild(answerLabelFourEl);
-    // creates an input for them to click
-    var answerFourEl = document.createElement("input");
-        answerFourEl.setAttribute("type", "button");
-        answerFourEl.setAttribute("id", "answerD");
-        answerFourEl.setAttribute("onclick", "answerQuestion()");
-        answerLabelFourEl.appendChild(answerFourEl);
     
     // each answer is in an label
     var answerLabelFourEl = document.createElement("label");
         answerLabelFourEl.textContent = theQuestions[i].answers.d;
         listOfAnswersEl.appendChild(answerLabelFourEl);
-    // creates an input for them to click
-    var answerFourEl = document.createElement("input");
-        answerFourEl.setAttribute("type", "button");
-        answerFourEl.setAttribute("id", "answerD");
-        answerFourEl.setAttribute("onclick", "answerQuestion()");
-        answerLabelFourEl.appendChild(answerFourEl);
 
-  
     rowEl.appendChild(secondColEl);
   
     // set up third column for timer
@@ -189,7 +126,6 @@ var startTest = function () {
   };
   
   var countDown = function (timeRemaining) {;
-      console.log("hey", timeRemaining);
     setInterval(function () {
       timeRemaining--;
   
@@ -197,13 +133,15 @@ var startTest = function () {
         "You have " + timeRemaining + " second(s) left.";
   
       if (timeRemaining <= 0) {
-        document.getElementById("over").innerHTML =
+        document.getElementById("times-up") =
           "Time's up!";
       }
       newTime = timeRemaining;
-    }, 1000);
+    }, 500);
   };
-  
+
+  //Remove start button after already clicked//
+
   var removeStart = function () {
     var removeStartButtonEl = document.getElementById("start");
     removeStartButtonEl.remove();
@@ -219,3 +157,4 @@ var startTest = function () {
   
   startTest();
 
+highScore.addEventListener("click" displayHighScore);
