@@ -1,3 +1,30 @@
+var timeRemaining = 75;
+var newTime = timeRemaining;
+
+var timerE1 = document.getElementById('timer');
+var header = document.getElementById('header');
+
+var choiceOne = document.getElementById('one');
+var choiceTwo = document.getElementById('two');
+var choiceThree = document.getElementById('three');
+var choiceFour = document.getElementById('four');
+
+var timesUp = document.getElementById('times-up');
+var gameOver = document.getElementById('game-over');
+var quizStart = document.getElementById('quiz-start');
+var quizContinue = document.getElementById('quiz-continue');
+var question = document.getElementById('questions');
+var gameOver = document.getElementById('game-over');
+var highScore = document.getElementById('high-score');
+
+var startBtn = document.getElementById('start')
+
+var timeRemaining;
+var showAnswer = 1;
+
+var numberHighscore = 0;
+var entries = [];
+// quiz questions
 var questions = [
     {
         question: "Inside which HTML element do we put the Javascript?",
@@ -51,36 +78,12 @@ var questions = [
     }
 ];
 
-var i = 0;
-
-var timeRemaining = 75;
-var newTime = timeRemaining;
-
-var choiceOne = document.getElementById('one');
-var choiceTwo = document.getElementById('two');
-var choiceThree = document.getElementById('three');
-var choiceFour = document.getElementById('four');
-
-var timesUp = document.getElementById('times-up');
-var gameOver = document.getElementById('game-over');
-var quizStart = document.getElementById('quiz-start');
-var quizContinue = document.getElementById('quiz-continue');
-var question = document.getElementById('questions');
-var gameOver = document.getElementById('game-over');
-var checkAnswer = document.getElementById('check-answer');
-var highScore = document.getElementById('high-score');
-
-
-var timerE1 = document.getElementById('timer');
-var header = document.getElementById('header');
-
-var timeRemaining = 1;
+var listQuestions = 0;
+var lastQuestion = questions.length - 1;
 
 var displayHighScore = function(event){
 
-}
-
-var checkAnswer(answer) {
+  var checkAnswer() {
     var answer = questions[listQuestions];
     
     question.innerHTML = answer.question;
@@ -88,9 +91,7 @@ var checkAnswer(answer) {
     choiceTwo.innerHTML = answer.choiceTwo;
     choiceThree.innerHTML = answer.choiceThree;
     choiceFour.innerHTML = answer.choiceFour;
-
-};
-  
+  }  
     // change test to quiz
     var beginTest = function () {
       countDown(timeRemaining);
@@ -139,6 +140,7 @@ var checkAnswer(answer) {
       newTime = timeRemaining;
     }, 500);
   };
+};
 
   //Remove start button after already clicked//
 
@@ -157,4 +159,4 @@ var checkAnswer(answer) {
   
   startTest();
 
-highScore.addEventListener("click" displayHighScore);
+highScore.addEventListener("click", displayHighScore);
