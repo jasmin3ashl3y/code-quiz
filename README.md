@@ -4,7 +4,7 @@
 
 ### URLs
 
-* Github repo:
-* Deployed:
+* Github repo: 
+* Deployed: https://jasmin3ashl3y.github.io/code-quiz/
 
 #### SCREENSHOT
