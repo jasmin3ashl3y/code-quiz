@@ -15,39 +15,62 @@
     </header>
 
     <div id="container" class="quiz-start">
-        <!--Start Game-->
-        <div id="start-page">
-            <h1 class="question">Code Quiz</h1>
-            <p>Answer these Javascript code questions before time runs out!</p>
-            <div id="start" class="btn">Start</div>
-        </div>
-        <!--Questions-->
-        <div id="quiz">
-            <div class="quiz-continue" style="display: none">
-            <h2 class="question" id="questions"></h2>
-            <div id="answers">
-                <div id="one" class="btn" onclick="checkAnswer('one')"></div>
-                <div id="two" class="btn" onclick="checkAnswer('two')"></div>
-                <div id="three" class="btn" onclick="checkAnswer('three')"></div>
-                <div id="four" class="btn" onclick="checkAnswer('four')"></div>
+            <!--Start Game-->
+            <div id="start-page">
+                <h1 class="question">Code Quiz</h1>
+                <p>Answer these Javascript code questions before time runs out!</p>
+                <div id="start" class="btn">Start</div>
             </div>
+            <!--Questions-->
+            <div id="quiz">
+                <div class="game-display" id="question-display" style="display: none">
+                <h2 class="question" id="questions"></h2>
+                <div id="answers">
+                    <div id="one" class="btn" onclick="checkAnswer('one')"></div>
+                    <div id="two" class="btn" onclick="checkAnswer('two')"></div>
+                    <div id="three" class="btn" onclick="checkAnswer('three')"></div>
+                    <div id="four" class="btn" onclick="checkAnswer('four')"></div>
+                </div>
+                </div>
             </div>
-        </div>
 
-        <!--If time runs out-->
-        <div id="times-up" style="display:none">
-        <h3>Time's up!</h3>
-        <div id="game-over" class="btn">Game Over! 0 pts</div>
+            <!--If time runs out-->
+            <div id="times-up" style="display:none">
+                <h3>Time's up!</h3>
+                <div id="game-over" class="btn">Game Over! 0 pts</div>
+            </div>
 
-        <!--Save your score-->
-        <div id="save-score" style="display:none">
-        <h2>All Done!</h2>
-        <p id="display-score">Your Final Score</p>
-        <div class="input-initials" type="text" name="user-name" placeholder="enter your initials"></div>
-        <div class="input-score" type="button" value="Submit" onclick="userName()"></div>
+            <!--Save your score-->
+            <div id="save-entry" class="scoreboard-container" style="display:none">
+                <div id="score">
+                    <h2>All Done!</h2>
+                    <p id="display-score">Your Final Score</p>
+                </div>
+                <form id="user-input" class="bar">
+                    <input id="initials" type="text" name="user-score" placeholder="enter your initials" />
+                    <input id="submit-score" class="btn space" type="button" value="Submit!" name="button" onclick="userName()"/>
+                </form>
+            </div>
+
+            <!-- Check scores-->
+            <div id="highscore-box" style="display: none">
+                <h2>Highscores</h2>
+                <ul id="highScores" class="highscores">
+
+                </ul>
+                <div id="highscore-buttons">
+                        <button id="go-back" class="btn" onclick="homeScreen()">Go back</button>
+                        <button id="clearStorage" class="btn" onclick="clearStorage()">Clear Highscores</button>
+                </div>
+            </div>
+
+            <!--Display box for correct or wrong answer-->
+            <div class="answer-box">
+                <p id="answer-display" class="answer-look" style="display: none"></p>
+            </div>
     </div>
-
-<script src="./assets/script.js"></script>  
+    
+    <script src="./assets/script.js"></script>  
 </body>
 
 </html>
